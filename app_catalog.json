@@ -1,0 +1,55 @@
+{
+  "Engineering": {
+    "apps": [
+      {"name": "github", "provisioning": "api", "default_role": "member", "api_docs": "https://docs.github.com/en/rest/orgs/members"},
+      {"name": "slack", "provisioning": "scim", "default_role": "member"},
+      {"name": "jira", "provisioning": "api", "default_role": "developer"},
+      {"name": "notion", "provisioning": "scim", "default_role": "member"},
+      {"name": "datadog", "provisioning": "manual", "default_role": "standard"},
+      {"name": "linear", "provisioning": "api", "default_role": "member"}
+    ]
+  },
+  "Design": {
+    "apps": [
+      {"name": "figma", "provisioning": "scim", "default_role": "editor"},
+      {"name": "slack", "provisioning": "scim", "default_role": "member"},
+      {"name": "notion", "provisioning": "scim", "default_role": "member"},
+      {"name": "miro", "provisioning": "api", "default_role": "member"},
+      {"name": "linear", "provisioning": "api", "default_role": "member"}
+    ]
+  },
+  "Product": {
+    "apps": [
+      {"name": "slack", "provisioning": "scim", "default_role": "member"},
+      {"name": "notion", "provisioning": "scim", "default_role": "admin"},
+      {"name": "jira", "provisioning": "api", "default_role": "project_admin"},
+      {"name": "linear", "provisioning": "api", "default_role": "admin"},
+      {"name": "amplitude", "provisioning": "manual", "default_role": "viewer"}
+    ]
+  },
+  "Operations": {
+    "apps": [
+      {"name": "slack", "provisioning": "scim", "default_role": "member"},
+      {"name": "notion", "provisioning": "scim", "default_role": "member"},
+      {"name": "quickbooks", "provisioning": "manual", "default_role": "viewer"},
+      {"name": "gusto", "provisioning": "manual", "default_role": "employee"}
+    ]
+  },
+  "Marketing": {
+    "apps": [
+      {"name": "slack", "provisioning": "scim", "default_role": "member"},
+      {"name": "notion", "provisioning": "scim", "default_role": "member"},
+      {"name": "hubspot", "provisioning": "api", "default_role": "sales_rep"},
+      {"name": "figma", "provisioning": "scim", "default_role": "viewer"},
+      {"name": "canva", "provisioning": "manual", "default_role": "member"}
+    ]
+  },
+  "_metadata": {
+    "provisioning_types": {
+      "api": "Direct API integration - fully automated",
+      "scim": "SCIM provisioning via IdP connector - automated through identity provider",
+      "manual": "Manual provisioning required - generates task checklist for IT"
+    },
+    "instructions": "Add or remove departments and apps as needed. Each app entry requires name, provisioning type, and default_role. Apps marked 'manual' will generate a checklist item instead of auto-provisioning."
+  }
+}

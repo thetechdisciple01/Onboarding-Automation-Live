@@ -1,0 +1,71 @@
+{
+  "aws": {
+    "Engineering": {
+      "L1": {
+        "groups": ["engineering-readonly"],
+        "policies": ["arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess", "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]
+      },
+      "L2": {
+        "groups": ["engineering-readonly"],
+        "policies": ["arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess", "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess", "arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess"]
+      },
+      "L3": {
+        "groups": ["engineering-dev"],
+        "policies": ["arn:aws:iam::aws:policy/PowerUserAccess"]
+      },
+      "L4": {
+        "groups": ["engineering-dev", "engineering-deploy"],
+        "policies": ["arn:aws:iam::aws:policy/PowerUserAccess"]
+      },
+      "L5": {
+        "groups": ["engineering-dev", "engineering-deploy", "engineering-admin"],
+        "policies": ["arn:aws:iam::aws:policy/PowerUserAccess", "arn:aws:iam::aws:policy/IAMFullAccess"]
+      }
+    },
+    "Design": {
+      "L1": {"groups": ["design-readonly"], "policies": ["arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]},
+      "L2": {"groups": ["design-readonly"], "policies": ["arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"]},
+      "L3": {"groups": ["design-assets"], "policies": ["arn:aws:iam::aws:policy/AmazonS3FullAccess"]},
+      "L4": {"groups": ["design-assets"], "policies": ["arn:aws:iam::aws:policy/AmazonS3FullAccess"]},
+      "L5": {"groups": ["design-assets", "design-admin"], "policies": ["arn:aws:iam::aws:policy/AmazonS3FullAccess"]}
+    },
+    "Operations": {
+      "L1": {"groups": ["ops-readonly"], "policies": ["arn:aws:iam::aws:policy/ReadOnlyAccess"]},
+      "L2": {"groups": ["ops-readonly"], "policies": ["arn:aws:iam::aws:policy/ReadOnlyAccess"]},
+      "L3": {"groups": ["ops-billing"], "policies": ["arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess"]},
+      "L4": {"groups": ["ops-billing", "ops-admin"], "policies": ["arn:aws:iam::aws:policy/AWSBillingReadOnlyAccess"]},
+      "L5": {"groups": ["ops-admin"], "policies": ["arn:aws:iam::aws:policy/AdministratorAccess"]}
+    },
+    "_default": {
+      "groups": ["company-readonly"],
+      "policies": ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
+    }
+  },
+  "azure": {
+    "Engineering": {
+      "L1": {"roles": ["Reader"], "groups": ["engineering-readonly"]},
+      "L2": {"roles": ["Reader"], "groups": ["engineering-readonly"]},
+      "L3": {"roles": ["Contributor"], "groups": ["engineering-dev"]},
+      "L4": {"roles": ["Contributor"], "groups": ["engineering-dev", "engineering-deploy"]},
+      "L5": {"roles": ["Owner"], "groups": ["engineering-admin"]}
+    },
+    "Design": {
+      "L1": {"roles": ["Reader"], "groups": ["design-readonly"]},
+      "L2": {"roles": ["Reader"], "groups": ["design-readonly"]},
+      "L3": {"roles": ["Storage Blob Data Contributor"], "groups": ["design-assets"]},
+      "L4": {"roles": ["Storage Blob Data Contributor"], "groups": ["design-assets"]},
+      "L5": {"roles": ["Contributor"], "groups": ["design-admin"]}
+    },
+    "Operations": {
+      "L1": {"roles": ["Reader"], "groups": ["ops-readonly"]},
+      "L2": {"roles": ["Reader"], "groups": ["ops-readonly"]},
+      "L3": {"roles": ["Billing Reader"], "groups": ["ops-billing"]},
+      "L4": {"roles": ["Cost Management Contributor"], "groups": ["ops-billing"]},
+      "L5": {"roles": ["Owner"], "groups": ["ops-admin"]}
+    },
+    "_default": {
+      "roles": ["Reader"],
+      "groups": ["company-readonly"]
+    }
+  }
+}

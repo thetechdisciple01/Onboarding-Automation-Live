@@ -1,0 +1,18 @@
+{
+  "google": {
+    "domain": "yourcompany.com",
+    "admin_email": "admin@yourcompany.com",
+    "credentials_file": "service_account.json",
+    "default_org_unit": "/Employees",
+    "scopes": [
+      "https://www.googleapis.com/auth/admin.directory.user",
+      "https://www.googleapis.com/auth/admin.directory.group",
+      "https://www.googleapis.com/auth/admin.directory.orgunit"
+    ]
+  },
+  "jumpcloud": {
+    "base_url": "https://console.jumpcloud.com/api",
+    "api_version": "v2",
+    "org_id": "your_jumpcloud_org_id"
+  }
+}
